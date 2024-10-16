@@ -1,78 +1,195 @@
 /* Mengatur seluruh halaman */
 body {
+    background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhe-4LKXMqwH0IjYHkMqL3UK23j6SpNpAZMeSqop9dG0AJ4zRfNOuTlCuXs5GahzTWRikZgUfxVvN17CkQ1Gmbjxrv5o_FrD4VYpSH8pAQE6RhpGzwBId3QUzjSya9z3_NpHZ-IKnq2vUvEddgx5lq1cdZHMhd4WaIRV7f6xo9-6T4nPPSAlSNVKZundvNi/s16000/1362041.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #fff;
+    font-family: 'Noto Sans', sans-serif;
     margin: 0;
     padding: 0;
-    font-family: 'Arial', sans-serif;
-    background-color: #1d1d1d;
-    color: #ffffff;
+    overflow-x: hidden; /* Menghindari scroll horizontal */
+    overflow-y: auto;   /* Mengizinkan scroll vertikal */
 }
 
-/* Container utama */
-.container {
-    max-width: 1200px;
-    margin: auto;
-    padding: 20px;
-}
-
-/* Gaya untuk judul */
-h1 {
-    font-size: 36px;
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-/* Gaya untuk gacha container */
-.gacha-container {
-    background-color: #2c2c2c;
+/* Mengatur container gacha */
+#gacha-container {
+    background-color: rgba(40, 40, 82, 0.9);
+    padding: 20px; /* Padding lebih kecil */
     border-radius: 8px;
-    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 85%; /* Mengurangi lebar container untuk responsivitas */
+    max-width: 320px; /* Lebar maksimum disesuaikan */
+    margin: 16px auto; /* Centering */
     text-align: center;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+
+/* Gaya judul */
+#gacha-container h2, #gacha-container h3 {
+    font-size: 48px; /* Ukuran font lebih kecil untuk judul */
+    margin-bottom: 8px; /* Jarak lebih kecil */
+    color: #f0f0f0;
 }
 
 /* Gaya tombol */
-.gacha-button {
-    background-color: #f0b32e;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
+#gacha-button, #gacha-10x-button {
+    padding: 12px 20px; /* Ukuran tombol lebih besar */
+    background-color: #e0b144;
     color: white;
-    font-size: 16px;
+    border: none;
+    border-radius: 8px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    font-size: 12px; /* Ukuran font lebih besar untuk tombol */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    margin: 6px;
 }
 
-.gacha-button:hover {
-    background-color: #d99b2e;
+/* Efek hover pada tombol */
+#gacha-button:hover, #gacha-10x-button:hover {
+    background-color: #d89a32;
+    box-shadow: 0 0 15px #ffd700, 0 0 30px #ffd700;
 }
 
-/* Gaya untuk hasil gacha */
-.result {
-    margin-top: 20px;
-    padding: 10px;
-    border-radius: 5px;
-    background-color: #3a3a3a;
+/* Gaya hasil gacha */
+.gacha-result {
+    margin-top: 6px;
+    font-size: 10px; /* Ukuran font lebih kecil */
+    color: #ffd700;
+    background-color: #38386a;
+    padding: 4px; /* Padding lebih kecil */
+    border-radius: 6px;
+    border: 1px solid #ffd700;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+    transform: scale(0.9);
+}
+
+/* Efek muncul hasil gacha */
+.gacha-result.show {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Efek khusus untuk hasil bintang 5 */
+.gacha-result.five-star {
+    background-color: #ffd700;
+    color: #2e2e52;
+    border-color: #ffeb3b;
+    box-shadow: 0 0 15px #ffdd44, 0 0 30px #ffdd44, 0 0 60px #ffdd44;
+    font-weight: bold;
+}
+
+/* Efek khusus untuk hasil bintang 4 */
+.gacha-result.four-star {
+    background-color: #5D42A9; /* Latar belakang ungu */
+    color: #ffffff; /* Warna font putih */
+    border-color: #5D42A9; /* Warna border ungu */
+    font-weight: bold;
+}
+
+/* Animasi untuk gambar rarity 5 */
+@keyframes pulse-glow {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 15px #ffdd44, 0 0 30px #ffdd44, 0 0 45px #ffdd44;
+    }
+    50% {
+        transform: scale(1.1);
+        box-shadow: 0 0 25px #ffdd44, 0 0 50px #ffdd44, 0 0 75px #ffdd44;
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 15px #ffdd44, 0 0 30px #ffdd44, 0 0 45px #ffdd44;
+    }
 }
 
 /* Gaya untuk gambar karakter */
-.character-image {
-    max-width: 100%;
+#character-image {
     border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 100%;
+}
+
+/* Gaya untuk gambar bintang 5 */
+.five-star-animation {
+    animation: pulse-glow 2s infinite;
 }
 
 /* Gaya untuk riwayat gacha */
-.history-container {
-    margin-top: 20px;
-    padding: 10px;
-    border: 1px solid #f0b32e;
-    border-radius: 5px;
-    background-color: #2c2c2c;
+#gacha-history-container {
+    margin-top: 12px;
+    max-height: 80px; /* Mengurangi tinggi maksimum */
+    overflow-y: auto;
+    border: 1px solid #ffd700;
+    border-radius: 6px;
+    background-color: #38386a;
+    padding: 4px; /* Padding lebih kecil */
+  font-size: 10px; /* Ukuran font lebih kecil untuk riwayat bintang 5 */
 }
 
-/* Gaya item riwayat gacha */
-.history-item {
-    margin: 5px 0;
-    padding: 5px;
-    background-color: #3a3a3a;
+/* Gaya untuk item riwayat gacha bintang 5 */
+.gacha-history-item.five-star {
+    background-color: #ffd700;
+    color: #5D42A9;
+    font-weight: bold;
+    padding: 2px; /* Padding lebih kecil */
     border-radius: 5px;
+    margin-bottom: 2px; /* Jarak lebih kecil */
+    font-size: 10px; /* Ukuran font lebih kecil untuk riwayat bintang 5 */
+}
+
+/* Gaya untuk item riwayat gacha bintang 4 */
+.gacha-history-item.four-star {
+    background-color: #5D42A9;
+    color: #ffffff;
+    font-weight: bold;
+    padding: 2px; /* Padding lebih kecil */
+    border-radius: 5px;
+    margin-bottom: 2px; /* Jarak lebih kecil */
+    font-size: 10px; /* Ukuran font lebih kecil untuk riwayat bintang 4 */
+}
+/* Gaya untuk item riwayat gacha bintang 4 */
+.gacha-history-item.four-star {
+    background-color: #5D42A9;
+    color: #ffffff;
+    font-weight: bold;
+    padding: 2px; /* Padding lebih kecil */
+    border-radius: 5px;
+    margin-bottom: 2px; /* Jarak lebih kecil */
+    font-size: 9px; /* Ukuran font lebih kecil untuk riwayat */
+}
+
+/* Gaya untuk hasil gacha */
+#gacha-results {
+    margin-top: 12px; /* Jarak antara tombol dan hasil gacha */
+    border-top: 2px solid #ffd700; /* Garis pemisah */
+    padding-top: 12px; /* Ruang di atas hasil gacha */
+}
+
+/* Responsivitas untuk layar kecil */
+@media (max-width: 600px) {
+    body {
+        padding: 0; /* Menghilangkan padding untuk layar kecil */
+    }
+
+    #gacha-container {
+        padding: 16px; /* Padding untuk container gacha */
+        width: 85%; /* Memastikan container menggunakan 85% lebar */
+        max-width: 320px; /* Lebar maksimum disesuaikan */
+        margin: 16px auto; /* Centering */
+    }
+
+    /* Mengatur ukuran tombol agar lebih besar */
+    #gacha-button, #gacha-10x-button {
+        padding: 8px 16px; /* Ukuran tombol lebih kecil untuk layar kecil */
+        font-size: 10px; /* Ukuran font lebih kecil untuk tombol */
+    }
+
+    /* Mengurangi ukuran judul untuk layar kecil */
+    #gacha-container h2, #gacha-container h3 {
+        font-size: 12px; /* Ukuran font lebih kecil untuk judul */
+    }
 }
