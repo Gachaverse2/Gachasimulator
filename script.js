@@ -31,6 +31,11 @@ function gacha() {
 
 function displayResult(character) {
     resultDiv.textContent = `Kamu mendapatkan: ${character.name} (Rarity: ${character.rarity})`;
+
+    // Tambahkan kelas show untuk animasi
+    resultDiv.classList.remove('show'); // Hapus kelas show untuk animasi kembali
+    void resultDiv.offsetWidth; // Trigger reflow untuk memulai animasi
+    resultDiv.classList.add('show'); // Tambahkan kelas show untuk animasi muncul
 }
 
 function updateHistory(character) {
