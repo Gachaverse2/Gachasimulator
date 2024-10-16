@@ -1,34 +1,104 @@
-const characters = [
-    { name: 'Aventurine', chance: 0.6, rarity: 'five-star' },
-    { name: 'March 7th', chance: 3.33, rarity: 'four-star' },
-    { name: 'Pela', chance: 3.33, rarity: 'four-star' },
-    { name: 'Sampo', chance: 3.33, rarity: 'four-star' },
-    { name: 'Amber', chance: 23.435, rarity: 'three-star' },
-    { name: 'Collapsing Sky', chance: 23.435, rarity: 'three-star' },
-    { name: 'Cornucopia', chance: 23.435, rarity: 'three-star' },
-    { name: 'Arrows', chance: 23.435, rarity: 'three-star' }
-];
+/* Mengatur seluruh halaman */
+body {
+    background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhe-4LKXMqwH0IjYHkMqL3UK23j6SpNpAZMeSqop9dG0AJ4zRfNOuTlCuXs5GahzTWRikZgUfxVvN17CkQ1Gmbjxrv5o_FrD4VYpSH8pAQE6RhpGzwBId3QUzjSya9z3_NpHZ-IKnq2vUvEddgx5lq1cdZHMhd4WaIRV7f6xo9-6T4nPPSAlSNVKZundvNi/s16000/1362041.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #fff;
+    font-family: 'Noto Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Menghindari scroll horizontal */
+}
 
-document.getElementById('gacha-button').addEventListener('click', function() {
-    const randomValue = Math.random() * 100; // Angka acak antara 0 dan 100
-    let accumulatedChance = 0;
-    let result = '';
+/* Mengatur container gacha */
+#gacha-container {
+    background-color: rgba(40, 40, 82, 0.9);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 90%; /* Responsif */
+    max-width: 400px; /* Lebar maksimum */
+    margin: 16px auto; /* Centering */
+    text-align: center;
+}
 
-    for (let character of characters) {
-        accumulatedChance += character.chance;
-        if (randomValue <= accumulatedChance) {
-            result = character;
-            break;
-        }
+/* Gaya judul */
+#gacha-container h2, #gacha-container h3 {
+    font-size: 24px; /* Ukuran font judul */
+    margin-bottom: 8px; /* Jarak antara judul dan konten */
+}
+
+/* Gaya tombol */
+#gacha-button {
+    padding: 10px 20px; /* Ukuran tombol */
+    background-color: #e0b144;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px; /* Ukuran font untuk tombol */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efek hover pada tombol */
+#gacha-button:hover {
+    background-color: #d89a32;
+    box-shadow: 0 0 15px #ffd700, 0 0 30px #ffd700;
+}
+
+/* Gaya hasil gacha */
+#gacha-results {
+    margin-top: 12px;
+    font-size: 18px; /* Ukuran font untuk hasil gacha */
+    color: #ffd700;
+    background-color: #38386a;
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid #ffd700;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Gaya untuk riwayat gacha */
+#gacha-history-container {
+    margin-top: 12px;
+    max-height: 200px; /* Mengatur tinggi maksimum */
+    overflow-y: auto;
+    border: 1px solid #ffd700;
+    border-radius: 6px;
+    background-color: #38386a;
+    padding: 4px; /* Padding untuk riwayat gacha */
+}
+
+/* Gaya untuk item riwayat gacha */
+#gacha-history-container div {
+    padding: 4px; /* Padding untuk setiap item */
+    margin-bottom: 4px; /* Jarak antara item */
+    background-color: rgba(255, 215, 0, 0.1); /* Latar belakang item riwayat */
+    border-radius: 4px; /* Sudut membulat */
+}
+
+/* Responsivitas untuk layar kecil */
+@media (max-width: 600px) {
+    body {
+        padding: 0; /* Menghilangkan padding untuk layar kecil */
     }
 
-    // Menampilkan hasil gacha
-    const resultsDiv = document.getElementById('gacha-results');
-    resultsDiv.innerHTML = `Kamu mendapatkan: ${result.name} (${result.rarity})`;
+    #gacha-container {
+        padding: 16px; /* Padding lebih kecil untuk container gacha */
+        width: 90%; /* Memastikan container menggunakan 90% lebar */
+        margin: 16px auto; /* Centering */
+    }
 
-    // Menambahkan riwayat gacha
-    const historyDiv = document.getElementById('gacha-history-container');
-    const historyItem = document.createElement('div');
-    historyItem.textContent = `${result.name} (${result.rarity})`;
-    historyDiv.appendChild(historyItem);
-});
+    /* Mengatur ukuran tombol agar lebih besar */
+    #gacha-button {
+        padding: 8px 16px; /* Ukuran tombol lebih kecil untuk layar kecil */
+        font-size: 14px; /* Ukuran font lebih kecil untuk tombol */
+    }
+
+    /* Mengurangi ukuran judul untuk layar kecil */
+    #gacha-container h2, #gacha-container h3 {
+        font-size: 18px; /* Ukuran font lebih kecil untuk judul */
+    }
+}
