@@ -1,104 +1,78 @@
 /* Mengatur seluruh halaman */
 body {
-    background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhe-4LKXMqwH0IjYHkMqL3UK23j6SpNpAZMeSqop9dG0AJ4zRfNOuTlCuXs5GahzTWRikZgUfxVvN17CkQ1Gmbjxrv5o_FrD4VYpSH8pAQE6RhpGzwBId3QUzjSya9z3_NpHZ-IKnq2vUvEddgx5lq1cdZHMhd4WaIRV7f6xo9-6T4nPPSAlSNVKZundvNi/s16000/1362041.jpeg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    color: #fff;
-    font-family: 'Noto Sans', sans-serif;
     margin: 0;
     padding: 0;
-    overflow-x: hidden; /* Menghindari scroll horizontal */
+    font-family: 'Arial', sans-serif;
+    background-color: #1d1d1d;
+    color: #ffffff;
 }
 
-/* Mengatur container gacha */
-#gacha-container {
-    background-color: rgba(40, 40, 82, 0.9);
+/* Container utama */
+.container {
+    max-width: 1200px;
+    margin: auto;
     padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    width: 90%; /* Responsif */
-    max-width: 400px; /* Lebar maksimum */
-    margin: 16px auto; /* Centering */
-    text-align: center;
 }
 
-/* Gaya judul */
-#gacha-container h2, #gacha-container h3 {
-    font-size: 24px; /* Ukuran font judul */
-    margin-bottom: 8px; /* Jarak antara judul dan konten */
+/* Gaya untuk judul */
+h1 {
+    font-size: 36px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Gaya untuk gacha container */
+.gacha-container {
+    background-color: #2c2c2c;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
 }
 
 /* Gaya tombol */
-#gacha-button {
-    padding: 10px 20px; /* Ukuran tombol */
-    background-color: #e0b144;
-    color: white;
+.gacha-button {
+    background-color: #f0b32e;
     border: none;
-    border-radius: 8px;
+    border-radius: 5px;
+    padding: 10px 20px;
+    color: white;
+    font-size: 16px;
     cursor: pointer;
-    font-size: 16px; /* Ukuran font untuk tombol */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    transition: background-color 0.3s ease;
 }
 
-/* Efek hover pada tombol */
-#gacha-button:hover {
-    background-color: #d89a32;
-    box-shadow: 0 0 15px #ffd700, 0 0 30px #ffd700;
+.gacha-button:hover {
+    background-color: #d99b2e;
 }
 
-/* Gaya hasil gacha */
-#gacha-results {
-    margin-top: 12px;
-    font-size: 18px; /* Ukuran font untuk hasil gacha */
-    color: #ffd700;
-    background-color: #38386a;
-    padding: 8px;
-    border-radius: 6px;
-    border: 1px solid #ffd700;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+/* Gaya untuk hasil gacha */
+.result {
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #3a3a3a;
+}
+
+/* Gaya untuk gambar karakter */
+.character-image {
+    max-width: 100%;
+    border-radius: 8px;
 }
 
 /* Gaya untuk riwayat gacha */
-#gacha-history-container {
-    margin-top: 12px;
-    max-height: 200px; /* Mengatur tinggi maksimum */
-    overflow-y: auto;
-    border: 1px solid #ffd700;
-    border-radius: 6px;
-    background-color: #38386a;
-    padding: 4px; /* Padding untuk riwayat gacha */
+.history-container {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #f0b32e;
+    border-radius: 5px;
+    background-color: #2c2c2c;
 }
 
-/* Gaya untuk item riwayat gacha */
-#gacha-history-container div {
-    padding: 4px; /* Padding untuk setiap item */
-    margin-bottom: 4px; /* Jarak antara item */
-    background-color: rgba(255, 215, 0, 0.1); /* Latar belakang item riwayat */
-    border-radius: 4px; /* Sudut membulat */
-}
-
-/* Responsivitas untuk layar kecil */
-@media (max-width: 600px) {
-    body {
-        padding: 0; /* Menghilangkan padding untuk layar kecil */
-    }
-
-    #gacha-container {
-        padding: 16px; /* Padding lebih kecil untuk container gacha */
-        width: 90%; /* Memastikan container menggunakan 90% lebar */
-        margin: 16px auto; /* Centering */
-    }
-
-    /* Mengatur ukuran tombol agar lebih besar */
-    #gacha-button {
-        padding: 8px 16px; /* Ukuran tombol lebih kecil untuk layar kecil */
-        font-size: 14px; /* Ukuran font lebih kecil untuk tombol */
-    }
-
-    /* Mengurangi ukuran judul untuk layar kecil */
-    #gacha-container h2, #gacha-container h3 {
-        font-size: 18px; /* Ukuran font lebih kecil untuk judul */
-    }
+/* Gaya item riwayat gacha */
+.history-item {
+    margin: 5px 0;
+    padding: 5px;
+    background-color: #3a3a3a;
+    border-radius: 5px;
 }
