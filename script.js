@@ -1,3 +1,4 @@
+<script>
     // Jumlah tiket gacha
     var totalTickets = localStorage.getItem('totalTickets') ? parseInt(localStorage.getItem('totalTickets')) : 100;
 
@@ -180,3 +181,4 @@
     // Tampilkan gambar karakter
     characterImage.src = result.image; // Pastikan Anda menyimpan URL gambar untuk setiap karakter
 }
+</script>
